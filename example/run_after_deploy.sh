@@ -1,3 +1,4 @@
+#!/bin/bash
 export KV_NAME=${1:-$(terraform output kv_name)}
 source ../scripts/fetch-kubeconfig.sh
 echo $KUBECONFIG
