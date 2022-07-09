@@ -124,8 +124,6 @@ upload() {
     ((retries--))
   done
 
-  cat /etc/rancher/rke2/rke2.yaml
-
   azure_domain=$(get_azure_kv_domain)
 
   access_token=$(curl "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.$${azure_domain}" -H Metadata:true | jq -r ".access_token")
