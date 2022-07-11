@@ -40,6 +40,14 @@ get_azure_domain() {
   fi
 }
 
+get_azure_kv_domain() {
+  if [ "$CLOUD" = "AzureUSGovernmentCloud" ]; then
+    echo 'usgovcloudapi.net'
+  else
+    echo 'azure.net'
+  fi
+}
+
 # The most simple "leader election" you've ever seen in your life
 elect_leader() {
 
@@ -96,7 +104,7 @@ cp_wait() {
 fetch_token() {
   info "Fetching rke2 join token..."
 
-  azure_domain=$(get_azure_domain)
+  azure_domain=$(get_azure_kv_domain)
 
   access_token=$(curl "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.$${azure_domain}" -H Metadata:true | jq -r ".access_token")
   token=$(curl '${vault_url}secrets/${token_secret}?api-version=2016-10-01' -H "Authorization: Bearer $${access_token}" | jq -r ".value")
@@ -116,7 +124,7 @@ upload() {
     ((retries--))
   done
 
-  azure_domain=$(get_azure_domain)
+  azure_domain=$(get_azure_kv_domain)
 
   access_token=$(curl "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.$${azure_domain}" -H Metadata:true | jq -r ".access_token")
 

@@ -131,7 +131,8 @@ module "init" {
   ccm           = var.enable_ccm
   node_labels   = "[]"
   #node_labels   = "[\"failure-domain.beta.kubernetes.io/region=${data.azurerm_resource_group.rg.location}\"]"
-  node_taints = "[\"CriticalAddonsOnly=true:NoExecute\"]"
+  node_taints   = "[\"CriticalAddonsOnly=true:NoExecute\"]"
+  cloud         = var.cloud
 
   agent = false
 }
