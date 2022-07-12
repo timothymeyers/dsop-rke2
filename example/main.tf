@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rke2" {
-  name     = var.cluster_name
+  name     = var.resource_group_name
   location = var.location
 }
 
@@ -34,4 +34,5 @@ module "rke2" {
   server_instance_count  = var.server_instance_count
   agent_instance_count   = var.agent_instance_count
   cloud                  = var.cloud
+  resource_group_name    = var.resource_group_name
 }
