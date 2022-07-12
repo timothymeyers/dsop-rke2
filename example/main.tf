@@ -34,5 +34,4 @@ module "rke2" {
   server_instance_count  = var.server_instance_count
   agent_instance_count   = var.agent_instance_count
   cloud                  = var.cloud
-  resource_group_name    = var.resource_group_name
 }
