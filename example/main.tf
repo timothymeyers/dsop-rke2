@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rke2" {
-  name     = var.resource_group_name
+  name     = "${var.cluster_name}-rg"
   location = var.location
 }
 
