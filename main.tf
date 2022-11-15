@@ -24,6 +24,7 @@ locals {
 module "rke2_cluster" {
   source              = "./modules/rke2-cluster"
   cluster_name        = var.cluster_name
+  rke2_version        = var.rke2_version
   resource_group_name = local.resource_group_name
   vnet_id             = local.network_details.vnet_id
   subnet_id           = var.subnet_id

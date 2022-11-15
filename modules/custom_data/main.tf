@@ -10,6 +10,7 @@ data "template_file" "init" {
     config       = var.config
     ccm          = var.ccm
     cloud        = var.cloud
+    rke2_version = var.rke2_version
     node_labels  = var.node_labels
     node_taints  = var.node_taints
 

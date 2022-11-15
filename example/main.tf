@@ -34,4 +34,5 @@ module "rke2" {
   server_instance_count  = var.server_instance_count
   agent_instance_count   = var.agent_instance_count
   cloud                  = var.cloud
+  rke2_version           = var.rke2_version
 }

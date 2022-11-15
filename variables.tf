@@ -3,6 +3,11 @@ variable "cluster_name" {
   type        = string
 }
 
+variable "rke2_version" {
+  type    = string
+  default = "v1.19.8+rke2r1"
+}
+
 variable "subnet_id" {
   description = "Subnet where to deploy the cluster resources"
   type        = string

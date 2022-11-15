@@ -8,6 +8,12 @@ variable "cloud" {
   }
 }
 
+variable "rke2_version" {
+  type    = string
+  default = "v1.19.8+rke2r1"
+}
+
+
 variable "server_public_ip" {
   description = "Assign a public IP to the control plane load balancer"
   type        = bool

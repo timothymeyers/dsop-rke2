@@ -40,6 +40,7 @@ module "rke2" {
 
   enable_ccm      = true
   cloud           = var.cloud
+  rke2_version    = var.rke2_version
   public_ip       = var.server_public_ip
   open_ssh_public = var.server_open_ssh_public
 
@@ -73,6 +74,7 @@ module "generic_agents" {
   vm_size   = length(var.agent_vm_size) > 0 ? var.agent_vm_size : var.vm_size
   priority  = "Regular" #"Spot"
   cloud     = var.cloud
+  rke2_version    = var.rke2_version
 
   # OS tuning 
   pre_userdata = <<EOF

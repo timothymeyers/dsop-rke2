@@ -40,6 +40,12 @@ variable "cloud" {
   }
 }
 
+variable "rke2_version" {
+  type    = string
+  default = "v1.19.8+rke2r1"
+}
+
+
 variable "node_labels" {
   type    = string
   default = "[]"

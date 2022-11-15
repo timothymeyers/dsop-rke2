@@ -133,6 +133,7 @@ module "init" {
   #node_labels   = "[\"failure-domain.beta.kubernetes.io/region=${data.azurerm_resource_group.rg.location}\"]"
   node_taints   = "[\"CriticalAddonsOnly=true:NoExecute\"]"
   cloud         = var.cloud
+  rke2_version  = var.rke2_version
 
   agent = false
 }
@@ -178,6 +179,7 @@ data "template_cloudinit_config" "init" {
             virtual_network_name      = var.virtual_network_name
             nsg_name                  = var.k8s_nsg_name
             cloud                     = var.cloud
+            rke2_version              = var.rke2_version
           })
           path        = "/etc/rancher/rke2/cloud.conf"
           permissions = "5555"

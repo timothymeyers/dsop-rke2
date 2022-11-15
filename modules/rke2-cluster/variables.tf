@@ -31,6 +31,11 @@ variable "cloud" {
   }
 }
 
+variable "rke2_version" {
+  type    = string
+  default = "v1.19.8+rke2r1"
+}
+
 variable "vm_size" {
   type    = string
   default = "Standard_DS4_v2"

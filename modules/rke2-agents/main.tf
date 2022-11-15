@@ -28,6 +28,7 @@ module "init" {
   # Has to be set to true on agents for Azure disk based PVCs to mount
   ccm         = true
   cloud       = var.cloud
+  rke2_version = var.rke2_version
   node_labels = "[\"failure-domain.beta.kubernetes.io/region=${data.azurerm_resource_group.rg.location}\"]"
   node_taints = "[]"
 
@@ -73,6 +74,7 @@ data "template_cloudinit_config" "init" {
             virtual_network_name      = var.virtual_network_name
             nsg_name                  = var.k8s_nsg_name
             cloud                     = var.cloud
+            rke2_version              = var.rke2_version
           })
           path        = "/etc/rancher/rke2/cloud.conf"
           permissions = "5555"
